@@ -23,6 +23,11 @@ class Artist
     SqlRunner.run sql, values
   end
 
+  def delete
+    sql = "DELETE FROM artists WHERE id = $1"
+    SqlRunner.run sql, [@id]
+  end
+
   def get_albums
     sql = "SELECT * FROM albums WHERE artist_id = $1"
     values = [@id]

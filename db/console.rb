@@ -18,11 +18,16 @@ album1.save
 album1.title = "Endgame"
 album1.update
 
-artists = Artist.select_all
-albums = Album.select_all
+
 
 retrieved_albums = artist1.get_albums
 retrieved_artist = retrieved_albums[0].get_artist
+
+album1.delete
+artist1.delete
+
+artists = Artist.select_all
+albums = Album.select_all
 
 binding.pry
 nil
