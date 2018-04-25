@@ -15,5 +15,7 @@ album1.save
 artists = Artist.select_all
 albums = Album.select_all
 
+retrieved_albums = artist1.get_albums
+
 binding.pry
 nil

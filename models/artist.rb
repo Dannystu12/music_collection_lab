@@ -1,4 +1,5 @@
 require_relative '../db/sql_runner'
+require_relative 'album'
 
 class Artist
   attr_accessor :name
@@ -14,6 +15,13 @@ class Artist
     value = [@name]
     results = SqlRunner.run sql, value
     @id = results[0]["id"].to_i
+  end
+
+  def get_albums
+    sql = "SELECT * FROM albums WHERE artist_id = $1"
+    values = [@id]
+    results = SqlRunner.run sql, values
+    results.map{|hash| Album.new(hash)}
   end
 
   def self.select_all
