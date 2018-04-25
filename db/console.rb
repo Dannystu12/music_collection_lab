@@ -16,6 +16,7 @@ artists = Artist.select_all
 albums = Album.select_all
 
 retrieved_albums = artist1.get_albums
+retrieved_artist = retrieved_albums[0].get_artist
 
 binding.pry
 nil
