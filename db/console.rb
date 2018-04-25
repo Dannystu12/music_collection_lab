@@ -12,5 +12,8 @@ album1 = Album.new({
   })
 album1.save
 
+artists = Artist.select_all
+albums = Album.select_all
+
 binding.pry
 nil
