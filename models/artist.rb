@@ -4,9 +4,9 @@ class Artist
   attr_accessor :name
   attr_reader :id
 
-  def initialize option
-    @name = option["name"]
-    @id = option["id"].to_i if option["id"]
+  def initialize options
+    @name = options["name"]
+    @id = options["id"].to_i if options["id"]
   end
 
   def save
