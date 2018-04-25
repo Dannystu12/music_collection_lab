@@ -18,8 +18,6 @@ album1.save
 album1.title = "Endgame"
 album1.update
 
-
-
 retrieved_albums = artist1.get_albums
 retrieved_artist = retrieved_albums[0].get_artist
 
@@ -28,6 +26,12 @@ artist1.delete
 
 artists = Artist.select_all
 albums = Album.select_all
+
+artist2 = Artist.get_by_id 2
+artist99 = Artist.get_by_id 99
+
+album2 = Album.get_by_id 2
+album99 = Album.get_by_id 99
 
 binding.pry
 nil

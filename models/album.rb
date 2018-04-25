@@ -8,7 +8,7 @@ class Album
     @title = options["title"]
     @genre = options["genre"]
     @artist_id = options["artist_id"].to_i
-    @id = options["id"] if options["id"]
+    @id = options["id"].to_i if options["id"]
   end
 
   def save
@@ -39,5 +39,11 @@ class Album
     sql = "SELECT * FROM albums"
     results = SqlRunner.run sql
     results.map{|hash| self.new(hash)}
+  end
+
+  def self.get_by_id id
+    sql = "SELECT * FROM albums WHERE id = $1"
+    results = SqlRunner.run sql, [id]
+    results.ntuples > 0 ? self.new(results[0]) : nil
   end
 end
